@@ -23,7 +23,7 @@ public class EmpleadoService extends BaseService<Empleado,Long> {
     @Transactional
     public List<Empleado> listarPorSucursal(Long idSucursal) throws Exception{
         try{
-            return empleadoRepository.findAllBySucursal_Id(idSucursal);
+            return empleadoRepository.findAllBySucursalId(idSucursal);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }

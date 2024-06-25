@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface ArticuloManufacturadoRepository extends BaseRepository<ArticuloManufacturado,Long>{
 
-    List<ArticuloManufacturado> findAllByCategoria_Id(Long idCategoria);
+    List<ArticuloManufacturado> findAllByCategoriaId(Long idCategoria);
 
-    List<ArticuloManufacturado> findAllByUnidadMedida_Id(Long idUnidadMedida);
+    List<ArticuloManufacturado> findAllByUnidadMedidaId(Long idUnidadMedida);
 }

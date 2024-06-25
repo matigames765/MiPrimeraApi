@@ -24,7 +24,7 @@ public class ProvinciaService extends BaseService<Provincia, Long>{
     @Transactional
     public List<Provincia> listarPorPais(Long idPais) throws Exception{
         try{
-            return provinciaRepository.findAllByPais_Id(idPais);
+            return provinciaRepository.findAllByPaisId(idPais);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }

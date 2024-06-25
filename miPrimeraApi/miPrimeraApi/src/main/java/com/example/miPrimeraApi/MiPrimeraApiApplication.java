@@ -121,7 +121,24 @@ public class MiPrimeraApiApplication {
 			em1.setFechaNacimiento(LocalDate.of(1992, 5, 27));
 			em1.setImagenEmpleado(img1);
 			em1.setUsuarioEmpleado(user);
-			empleadoRepository.save(em1);
+
+			Pais paisClient1 = Pais.builder().nombre("Chile").build();
+			paisRepository.save(paisClient1);
+
+			Provincia provinciaClient1 = Provincia.builder().nombre("Santiago de Chile").build();
+			provinciaClient1.setPais(paisClient1);
+			provinciaRepository.save(provinciaClient1);
+
+			Localidad localidadClient1 = Localidad.builder().nombre("Las Condes").build();
+			localidadClient1.setProvincia(provinciaClient1);
+			localidadRepository.save(localidadClient1);
+
+			Domicilio domicilioClient1 = Domicilio.builder().calle("España").numero(324).cp(5030).build();
+			domicilioClient1.setLocalidad(localidadClient1);
+			domicilioRepository.save(domicilioClient1);
+
+			Set<Domicilio> domiciliosClient1 = new HashSet<Domicilio>();
+			domiciliosClient1.add(domicilioClient1);
 
 			Cliente client1 = Cliente.builder().rolCliente(Rol.CLIENTE).build();
 			client1.setNombre("Juan");
@@ -131,6 +148,7 @@ public class MiPrimeraApiApplication {
 			client1.setFechaNacimiento(LocalDate.of(1995,4,15));
 			client1.setImagenCliente(img2);
 			client1.setUsuarioCliente(user2);
+			client1.setDomicilios(domiciliosClient1);
 			clienteRepository.save(client1);
 
 			Categoria categoriaHija = Categoria.builder().denominacion("helados").build();
@@ -195,6 +213,7 @@ public class MiPrimeraApiApplication {
 
 			ArticuloManufacturadoDetalle articuloManufacturadoDetalle = ArticuloManufacturadoDetalle.builder().cantidad(3).build();
 			articuloManufacturadoDetalle.setArticuloManufacturado(articuloManufacturado);
+			articuloManufacturadoDetalle.setArticuloInsumo(articuloInsumo);
 			articuloManufacturadoDetalleRepository.save(articuloManufacturadoDetalle);
 
 			Pais pais = Pais.builder().nombre("Argentina").build();
@@ -271,6 +290,9 @@ public class MiPrimeraApiApplication {
 			sucursal.setPromociones(promocionesSucursal);
 			sucursal.setCategorias(categoriasSucursal);
 			sucursalRepository.save(sucursal);
+
+			em1.setSucursal(sucursal);
+			empleadoRepository.save(em1);
 
 			Factura facturaPedido = Factura.builder().fechaFacturacion(LocalDate.of(2024,5,12)).build();
 			facturaPedido.setMpPaymentId(2345678);

@@ -22,7 +22,7 @@ public class DomicilioService extends BaseService<Domicilio,Long>{
     @Transactional
     public List<Domicilio> listarPorLocalidad(Long idLocalidad) throws Exception{
         try{
-            return domicilioRepository.findAllByLocalidad_Id(idLocalidad);
+            return domicilioRepository.findAllByLocalidadId(idLocalidad);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }

@@ -22,7 +22,7 @@ public class DetallePedidoService extends BaseService<DetallePedido,Long>{
     @Transactional
     public List<DetallePedido> listarPorPedido(Long idPedido) throws Exception{
         try{
-            return detallePedidoRepository.findAllByPedido_Id(idPedido);
+            return detallePedidoRepository.findAllByPedidoId(idPedido);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
@@ -31,7 +31,7 @@ public class DetallePedidoService extends BaseService<DetallePedido,Long>{
     @Transactional
     public List<DetallePedido> listarPorArticulo(Long idArticulo) throws Exception{
         try{
-            return detallePedidoRepository.findAllByArticulo_Id(idArticulo);
+            return detallePedidoRepository.findAllByArticuloId(idArticulo);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }

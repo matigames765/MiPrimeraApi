@@ -22,7 +22,7 @@ public class LocalidadService extends BaseService<Localidad,Long>{
     @Transactional
     public List<Localidad> listarPorProvincia(Long idProvincia) throws Exception{
         try{
-            return localidadRepository.findAllByProvincia_Id(idProvincia);
+            return localidadRepository.findAllByProvinciaId(idProvincia);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }

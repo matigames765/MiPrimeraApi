@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface ProvinciaRepository extends BaseRepository<Provincia, Long>{
 
-    List<Provincia> findAllByPais_Id(Long idPais);
+    List<Provincia> findAllByPaisId(Long idPais);
 
 }

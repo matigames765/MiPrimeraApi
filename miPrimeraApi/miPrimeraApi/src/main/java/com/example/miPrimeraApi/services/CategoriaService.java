@@ -41,7 +41,7 @@ public class CategoriaService extends BaseService<Categoria,Long>{
     @Transactional
     public List<Categoria> listarPorCategoriaPadre(Long idCategoriaPadre) throws Exception{
         try{
-            return categoriaRepository.findAllByCategoriaPadre_Id(idCategoriaPadre);
+            return categoriaRepository.findAllByCategoriaPadreId(idCategoriaPadre);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }

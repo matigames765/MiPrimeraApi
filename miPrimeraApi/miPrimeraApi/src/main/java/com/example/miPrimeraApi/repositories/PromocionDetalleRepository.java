@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public interface PromocionDetalleRepository extends BaseRepository<PromocionDetalle,Long>{
 
-    List<PromocionDetalle> findAllByPromocion_Id(Long idPromocion);
+    List<PromocionDetalle> findAllByPromocionId(Long idPromocion);
 
-    List<PromocionDetalle> findAllByArticulo_Id(Long idArticulo);
+    List<PromocionDetalle> findAllByArticuloId(Long idArticulo);
 }

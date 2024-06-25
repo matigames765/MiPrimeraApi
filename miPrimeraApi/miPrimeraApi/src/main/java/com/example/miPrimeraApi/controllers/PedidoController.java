@@ -1,6 +1,7 @@
 package com.example.miPrimeraApi.controllers;
 
 import com.example.miPrimeraApi.entities.DetallePedido;
+import com.example.miPrimeraApi.entities.Factura;
 import com.example.miPrimeraApi.entities.Pedido;
 import com.example.miPrimeraApi.repositories.PedidoRepository;
 import com.example.miPrimeraApi.services.BaseService;
@@ -45,6 +46,12 @@ public class PedidoController extends BaseController<Pedido,Long> {
     public ResponseEntity<List<Pedido>> listarPorCliente(@PathVariable Long idCliente) throws Exception{
         List<Pedido> pedidos = pedidoService.listarPorCliente(idCliente);
         return ResponseEntity.ok(pedidos);
+    }
+
+    @GetMapping("/factura/{id}")
+    public Optional<Factura> mostrarFacturaPorPedido(@PathVariable Long idPedido) throws Exception{
+        Factura factura = pedidoService.mostrarFacturaPorPedido(idPedido);
+        return Optional.ofNullable(factura);
     }
 
     @PutMapping("/total")

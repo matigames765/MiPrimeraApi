@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface EmpleadoRepository extends BaseRepository<Empleado, Long> {
 
-    List<Empleado> findAllBySucursal_Id(Long idSucursal);
+    List<Empleado> findAllBySucursalId(Long idSucursal);
 }

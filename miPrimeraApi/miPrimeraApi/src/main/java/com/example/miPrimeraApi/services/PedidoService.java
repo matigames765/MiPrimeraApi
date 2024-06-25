@@ -1,6 +1,7 @@
 package com.example.miPrimeraApi.services;
 
 import com.example.miPrimeraApi.entities.DetallePedido;
+import com.example.miPrimeraApi.entities.Factura;
 import com.example.miPrimeraApi.entities.Pedido;
 import com.example.miPrimeraApi.repositories.BaseRepository;
 import com.example.miPrimeraApi.repositories.PedidoRepository;
@@ -26,7 +27,7 @@ public class PedidoService extends BaseService<Pedido, Long>{
     @Transactional
     public List<Pedido> listarPorDomicilio(Long idDomicilio) throws Exception{
         try{
-            return pedidoRepository.findAllByDomicilio_Id(idDomicilio);
+            return pedidoRepository.findAllByDomicilioId(idDomicilio);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
@@ -35,7 +36,7 @@ public class PedidoService extends BaseService<Pedido, Long>{
     @Transactional
     public List<Pedido> listarPorSucursal(Long idSucursal) throws Exception{
         try{
-            return pedidoRepository.findAllBySucursal_Id(idSucursal);
+            return pedidoRepository.findAllBySucursalId(idSucursal);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
@@ -44,7 +45,7 @@ public class PedidoService extends BaseService<Pedido, Long>{
     @Transactional
     public List<Pedido> listarPorEmpleado(Long idEmpleado) throws Exception{
         try{
-            return pedidoRepository.findAllByEmpleado_Id(idEmpleado);
+            return pedidoRepository.findAllByEmpleadoId(idEmpleado);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
@@ -53,7 +54,17 @@ public class PedidoService extends BaseService<Pedido, Long>{
     @Transactional
     public List<Pedido> listarPorCliente(Long idCliente) throws Exception{
         try{
-            return pedidoRepository.findAllByCliente_Id(idCliente);
+            return pedidoRepository.findAllByClienteId(idCliente);
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Transactional
+    public Factura mostrarFacturaPorPedido(Long idPedido) throws Exception{
+        try{
+            Pedido pedido = pedidoRepository.findById(idPedido).orElse(null);
+            return pedido.getFactura();
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }

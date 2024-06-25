@@ -8,5 +8,5 @@ import java.util.List;
 @Repository
 public interface LocalidadRepository extends BaseRepository<Localidad, Long>{
 
-    List<Localidad> findAllByProvincia_Id(Long idProvincia);
+    List<Localidad> findAllByProvinciaId(Long idProvincia);
 }

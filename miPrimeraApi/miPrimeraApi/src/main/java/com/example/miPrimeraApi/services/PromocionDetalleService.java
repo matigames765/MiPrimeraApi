@@ -23,7 +23,7 @@ public class PromocionDetalleService extends BaseService<PromocionDetalle,Long> 
     @Transactional
     public List<PromocionDetalle> listarPorPromocion(Long idPromocion) throws Exception{
         try{
-            return promocionDetalleRepository.findAllByPromocion_Id(idPromocion);
+            return promocionDetalleRepository.findAllByPromocionId(idPromocion);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
@@ -32,7 +32,7 @@ public class PromocionDetalleService extends BaseService<PromocionDetalle,Long> 
     @Transactional
     public List<PromocionDetalle> listarPorArticulo(Long idArticulo) throws Exception{
         try{
-            return promocionDetalleRepository.findAllByArticulo_Id(idArticulo);
+            return promocionDetalleRepository.findAllByArticuloId(idArticulo);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }

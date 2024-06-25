@@ -24,7 +24,7 @@ public class ArticuloManufacturadoService extends BaseService<ArticuloManufactur
     @Transactional
     public List<ArticuloManufacturado> listarPorCategoria(Long idCategoria) throws Exception{
         try{
-            return articuloManufacturadoRepository.findAllByCategoria_Id(idCategoria);
+            return articuloManufacturadoRepository.findAllByCategoriaId(idCategoria);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
@@ -33,7 +33,7 @@ public class ArticuloManufacturadoService extends BaseService<ArticuloManufactur
     @Transactional
     public List<ArticuloManufacturado> listarPorUnidadMedida(Long idUnidadMedida) throws Exception{
         try{
-            return articuloManufacturadoRepository.findAllByUnidadMedida_Id(idUnidadMedida);
+            return articuloManufacturadoRepository.findAllByUnidadMedidaId(idUnidadMedida);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }

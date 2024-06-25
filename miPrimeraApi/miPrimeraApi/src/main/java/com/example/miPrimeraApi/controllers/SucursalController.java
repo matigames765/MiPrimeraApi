@@ -1,5 +1,7 @@
 package com.example.miPrimeraApi.controllers;
 
+import com.example.miPrimeraApi.entities.Categoria;
+import com.example.miPrimeraApi.entities.Promocion;
 import com.example.miPrimeraApi.entities.PromocionDetalle;
 import com.example.miPrimeraApi.entities.Sucursal;
 import com.example.miPrimeraApi.services.BaseService;
@@ -29,4 +31,18 @@ public class SucursalController extends BaseController<Sucursal,Long>{
         List<Sucursal> sucursales = sucursalService.listarPorEmpresa(idEmpresa);
         return ResponseEntity.ok(sucursales);
     }
+
+    @GetMapping("/promocion/{id}")
+    public ResponseEntity<List<Promocion>> listarPromocionesPorSucursal(@PathVariable Long idSucursal) throws Exception{
+        List<Promocion> promociones = sucursalService.listarPromocionesPorSucursal(idSucursal);
+        return ResponseEntity.ok(promociones);
+    }
+
+    @GetMapping("/categoria/{id}")
+    public ResponseEntity<List<Categoria>> listarCategoriasPorSucursal(@PathVariable Long idSucursal) throws Exception{
+        List<Categoria> categorias = sucursalService.listarCategoriasPorSucursal(idSucursal);
+        return ResponseEntity.ok(categorias);
+    }
+
+
 }

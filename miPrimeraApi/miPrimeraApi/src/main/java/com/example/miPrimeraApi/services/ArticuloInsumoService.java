@@ -23,7 +23,7 @@ public class ArticuloInsumoService extends BaseService<ArticuloInsumo,Long>{
     @Transactional
     public List<ArticuloInsumo> listarPorCategoria(Long idCategoria) throws Exception{
         try{
-            return articuloInsumoRepository.findAllByCategoria_Id(idCategoria);
+            return articuloInsumoRepository.findAllByCategoriaId(idCategoria);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
@@ -32,9 +32,11 @@ public class ArticuloInsumoService extends BaseService<ArticuloInsumo,Long>{
     @Transactional
     public List<ArticuloInsumo> listarPorUnidadMedida(Long idUnidadMedida) throws Exception{
         try{
-            return articuloInsumoRepository.findAllByUnidadMedida_Id(idUnidadMedida);
+            return articuloInsumoRepository.findAllByUnidadMedidaId(idUnidadMedida);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }
+
+
 }

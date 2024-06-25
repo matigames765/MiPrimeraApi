@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface ArticuloInsumoRepository extends BaseRepository<ArticuloInsumo,Long>{
 
-    List<ArticuloInsumo> findAllByCategoria_Id(Long idCategoria);
+    List<ArticuloInsumo> findAllByCategoriaId(Long idCategoria);
 
-    List<ArticuloInsumo> findAllByUnidadMedida_Id(Long idUnidadMedida);
+    List<ArticuloInsumo> findAllByUnidadMedidaId(Long idUnidadMedida);
 }
